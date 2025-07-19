@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPV Comunicação</title>
+<style>
+body {margin:0;font-family:'Segoe UI',sans-serif;background:#f4f4f4;color:#333}
+header, footer {background:#101820;color:#fff;padding:20px;text-align:center}
+nav ul {list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:20px}
+nav a {color:#fff;text-decoration:none;font-weight:bold;cursor:pointer}
+.hero {background:#005a9c;color:#fff;padding:60px 20px;text-align:center}
+.hero h1 {font-size:3rem;font-weight:bold}
+.hero p {font-size:1.6rem;margin-top:10px;font-weight:500}
+section {padding:40px 20px;max-width:1200px;margin:auto}
+section h2 {text-align:center;margin-bottom:20px;font-size:2rem}
+.categorias, .produtos, .diferenciais, .blog {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card {background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1);text-align:center}
+.card button {background:#005a9c;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer}
+.card button:hover {background:#004080}
+footer .links {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px}
+footer .links a {color:#fff;text-decoration:none;font-size:0.9rem;cursor:pointer}
+.produto {border:1px solid #ddd;padding:15px;border-radius:8px;text-align:center;background:#fff}
+.produto h3 {margin:10px 0}
+.produto p {margin:5px 0}
+.produto .preco {color:green;font-weight:bold}
+.produto .avaliacao {color:#f5a623}
+.produto button {margin-top:10px}
+</style>
+<script>
+function navegar(destino){alert("Redirecionando para: "+destino)}
+function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho!")}
+</script>
+</head>
+<body>
+
+<header>
+<h1>SPV Comunicação</h1>
+<nav>
+<ul>
+<li><a onclick="navegar('home')">Home</a></li>
+<li><a onclick="navegar('produtos')">Produtos ▾</a></li>
+<li><a onclick="navegar('setores')">Soluções por Setor ▾</a></li>
+<li><a onclick="navegar('blog')">Blog</a></li>
+<li><a onclick="navegar('contato')">Contato</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Tecnologia e Segurança que Protegem seu Futuro.</h1>
+<p>Encontre os EPIs com certificação e a qualidade que sua equipe precisa para trabalhar com máxima confiança.</p>
+</div>
+
+<section class="produtos">
+<div class="produto">
+<h3>Luva Anticorte</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 35,90</p>
+<button onclick="adicionarAoCarrinho('Luva Anticorte')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Capacete Classe B</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 49,90</p>
+<button onclick="adicionarAoCarrinho('Capacete Classe B')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Óculos de Proteção Incolor</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 19,90</p>
+<button onclick="adicionarAoCarrinho('Óculos de Proteção')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Máscara PFF2</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 5,90</p>
+<button onclick="adicionarAoCarrinho('Máscara PFF2')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Bota de PVC</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 79,90</p>
+<button onclick="adicionarAoCarrinho('Bota de PVC')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Cinto de Segurança Tipo Paraquedista</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 129,90</p>
+<button onclick="adicionarAoCarrinho('Cinto de Segurança')">Adicionar ao Carrinho</button>
+</div>
+</section>
+
+<section class="diferenciais">
+<h2>Sobre a SPV Comunicação</h2>
+<p>A SPV Comunicação é especializada em fornecer equipamentos de proteção individual que atendem às normas técnicas e oferecem máxima segurança para diversos segmentos profissionais. Atuamos com comprometimento, inovação e foco total no cliente, garantindo produtos de alta qualidade, entregas rápidas e um atendimento diferenciado. Com experiência de mercado e parcerias sólidas, nossa missão é proteger quem trabalha, promovendo ambientes mais seguros e produtivos.</p>
+</section>
+
+<section class="blog">
+<h2>Fique por Dentro da Segurança no Trabalho</h2>
+<div class="card">
+<h3>Como escolher a luva certa?</h3>
+<p>A escolha da luva adequada depende diretamente da atividade exercida. Luvas anticorte são ideais para trabalhos com chapas metálicas ou objetos cortantes, enquanto luvas de borracha são recomendadas para manipulação de produtos químicos. Sempre verifique o nível de proteção indicado pela norma EN 388.</p>
+<button onclick="navegar('luvas')">Leia mais →</button>
+</div>
+<div class="card">
+<h3>EPIs obrigatórios por setor</h3>
+<p>Cada setor de trabalho exige EPIs específicos: na construção civil, é comum o uso de capacetes, botas e cintos de segurança. Em ambientes hospitalares, jalecos, luvas descartáveis e máscaras são indispensáveis. Já na indústria química, o uso de respiradores, aventais e protetores faciais é essencial. Conhecer a NR-6 é fundamental para garantir conformidade legal e segurança.</p>
+<button onclick="navegar('epis-setores')">Leia mais →</button>
+</div>
+</section>
+
+<footer>
+<p>Rua Campo das Pitangueiras, 379 - São Paulo, SP</p>
+<p>(11) 91134-9095 | contato@spvcomunicacao.com.br</p>
+<div class="links">
+<a onclick="navegar('seguranca')">Sua Segurança, Nossa Prioridade.</a>
+<a onclick="navegar('sobre')">Sobre Nós</a>
+<a onclick="navegar('trabalhe')">Trabalhe Conosco</a>
+<a onclick="navegar('privacidade')">Política de Privacidade</a>
+<a onclick="navegar('termos')">Termos de Uso</a>
+<a onclick="navegar('comprar')">Como Comprar</a>
+<a onclick="navegar('trocas')">Trocas e Devoluções</a>
+<a onclick="navegar('faq')">FAQ</a>
+<a onclick="navegar('contato')">Fale Conosco</a>
+</div>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPV Comunicação</title>
+<style>
+body {margin:0;font-family:'Segoe UI',sans-serif;background:#f4f4f4;color:#333}
+header, footer {background:#101820;color:#fff;padding:20px;text-align:center}
+nav ul {list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:20px}
+nav a {color:#fff;text-decoration:none;font-weight:bold;cursor:pointer}
+.hero {background:#005a9c;color:#fff;padding:60px 20px;text-align:center}
+.hero h1 {font-size:3rem;font-weight:bold}
+.hero p {font-size:1.6rem;margin-top:10px;font-weight:500}
+section {padding:40px 20px;max-width:1200px;margin:auto}
+section h2 {text-align:center;margin-bottom:20px;font-size:2rem}
+.categorias, .produtos, .diferenciais, .blog {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card {background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1);text-align:center}
+.card button {background:#005a9c;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer}
+.card button:hover {background:#004080}
+footer .links {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px}
+footer .links a {color:#fff;text-decoration:none;font-size:0.9rem;cursor:pointer}
+.produto {border:1px solid #ddd;padding:15px;border-radius:8px;text-align:center;background:#fff}
+.produto h3 {margin:10px 0}
+.produto p {margin:5px 0}
+.produto .preco {color:green;font-weight:bold}
+.produto .avaliacao {color:#f5a623}
+.produto button {margin-top:10px}
+</style>
+<script>
+function navegar(destino){alert("Redirecionando para: "+destino)}
+function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho!")}
+</script>
+</head>
+<body>
+
+<header>
+<h1>SPV Comunicação</h1>
+<nav>
+<ul>
+<li><a onclick="navegar('home')">Home</a></li>
+<li><a onclick="navegar('produtos')">Produtos ▾</a></li>
+<li><a onclick="navegar('setores')">Soluções por Setor ▾</a></li>
+<li><a onclick="navegar('blog')">Blog</a></li>
+<li><a onclick="navegar('contato')">Contato</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Tecnologia e Segurança que Protegem seu Futuro.</h1>
+<p>Encontre os EPIs com certificação e a qualidade que sua equipe precisa para trabalhar com máxima confiança.</p>
+</div>
+
+<section class="produtos">
+<div class="produto">
+<h3>Luva Anticorte</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 35,90</p>
+<button onclick="adicionarAoCarrinho('Luva Anticorte')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Capacete Classe B</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 49,90</p>
+<button onclick="adicionarAoCarrinho('Capacete Classe B')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Óculos de Proteção Incolor</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 19,90</p>
+<button onclick="adicionarAoCarrinho('Óculos de Proteção')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Máscara PFF2</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 5,90</p>
+<button onclick="adicionarAoCarrinho('Máscara PFF2')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Bota de PVC</h3>
+<p class="avaliacao">★★★★☆</p>
+<p class="preco">R$ 79,90</p>
+<button onclick="adicionarAoCarrinho('Bota de PVC')">Adicionar ao Carrinho</button>
+</div>
+<div class="produto">
+<h3>Cinto de Segurança Tipo Paraquedista</h3>
+<p class="avaliacao">★★★★★</p>
+<p class="preco">R$ 129,90</p>
+<button onclick="adicionarAoCarrinho('Cinto de Segurança')">Adicionar ao Carrinho</button>
+</div>
+</section>
+
+<section class="diferenciais">
+<h2>Sobre a SPV Comunicação</h2>
+<p>A SPV Comunicação é especializada em fornecer equipamentos de proteção individual que atendem às normas técnicas e oferecem máxima segurança para diversos segmentos profissionais. Atuamos com comprometimento, inovação e foco total no cliente, garantindo produtos de alta qualidade, entregas rápidas e um atendimento diferenciado. Com experiência de mercado e parcerias sólidas, nossa missão é proteger quem trabalha, promovendo ambientes mais seguros e produtivos.</p>
+</section>
+
+<section class="blog">
+<h2>Fique por Dentro da Segurança no Trabalho</h2>
+<div class="card">
+<h3>Como escolher a luva certa?</h3>
+<p>A escolha da luva adequada depende diretamente da atividade exercida. Luvas anticorte são ideais para trabalhos com chapas metálicas ou objetos cortantes, enquanto luvas de borracha são recomendadas para manipulação de produtos químicos. Sempre verifique o nível de proteção indicado pela norma EN 388.</p>
+<button onclick="navegar('luvas')">Leia mais →</button>
+</div>
+<div class="card">
+<h3>EPIs obrigatórios por setor</h3>
+<p>Cada setor de trabalho exige EPIs específicos: na construção civil, é comum o uso de capacetes, botas e cintos de segurança. Em ambientes hospitalares, jalecos, luvas descartáveis e máscaras são indispensáveis. Já na indústria química, o uso de respiradores, aventais e protetores faciais é essencial. Conhecer a NR-6 é fundamental para garantir conformidade legal e segurança.</p>
+<button onclick="navegar('epis-setores')">Leia mais →</button>
+</div>
+</section>
+
+<footer>
+<p>Rua Campo das Pitangueiras, 379 - São Paulo, SP</p>
+<p>(11) 91134-9095 | contato@spvcomunicacao.com.br</p>
+<div class="links">
+<a onclick="navegar('seguranca')">Sua Segurança, Nossa Prioridade.</a>
+<a onclick="navegar('sobre')">Sobre Nós</a>
+<a onclick="navegar('trabalhe')">Trabalhe Conosco</a>
+<a onclick="navegar('privacidade')">Política de Privacidade</a>
+<a onclick="navegar('termos')">Termos de Uso</a>
+<a onclick="navegar('comprar')">Como Comprar</a>
+<a onclick="navegar('trocas')">Trocas e Devoluções</a>
+<a onclick="navegar('faq')">FAQ</a>
+<a onclick="navegar('contato')">Fale Conosco</a>
+</div>
+</footer>
+
+</body>
+</html>
