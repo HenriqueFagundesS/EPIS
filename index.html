@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SPV Comunicação</title>
 <style>
+html {scroll-behavior:smooth}
 body {margin:0;font-family:'Segoe UI',sans-serif;background:#f4f4f4;color:#333}
 header, footer {background:#101820;color:#fff;padding:20px;text-align:center}
 nav ul {list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:20px}
@@ -16,8 +17,7 @@ section {padding:40px 20px;max-width:1200px;margin:auto}
 section h2 {text-align:center;margin-bottom:20px;font-size:2rem}
 .categorias, .produtos, .diferenciais, .blog {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .card {background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1);text-align:center}
-.card button {background:#005a9c;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer}
-.card button:hover {background:#004080}
+.card button {display:none}
 footer .links {display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px}
 footer .links a {color:#fff;text-decoration:none;font-size:0.9rem;cursor:pointer}
 .produto {border:1px solid #ddd;padding:15px;border-radius:8px;text-align:center;background:#fff}
@@ -26,10 +26,33 @@ footer .links a {color:#fff;text-decoration:none;font-size:0.9rem;cursor:pointer
 .produto .preco {color:green;font-weight:bold}
 .produto .avaliacao {color:#f5a623}
 .produto button {margin-top:10px}
+#carrinhoBotao {position:fixed;bottom:20px;right:20px;background:#005a9c;color:#fff;padding:15px 20px;border:none;border-radius:50px;font-weight:bold;cursor:pointer;z-index:999}
+#carrinhoConteudo {display:none;position:fixed;bottom:80px;right:20px;width:300px;max-height:300px;overflow:auto;background:#fff;border:1px solid #ccc;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.2);padding:10px;z-index:999}
+#carrinhoConteudo ul {padding:0;list-style:none}
+#carrinhoConteudo li {padding:5px 0;border-bottom:1px solid #ddd}
 </style>
 <script>
-function navegar(destino){alert("Redirecionando para: "+destino)}
-function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho!")}
+let carrinho=[]
+function adicionarAoCarrinho(produto){
+carrinho.push(produto)
+alert(produto+" foi adicionado ao carrinho!")
+atualizarCarrinho()
+}
+function atualizarCarrinho(){
+let lista=document.getElementById("carrinhoLista")
+lista.innerHTML=""
+carrinho.forEach(item=>{
+let li=document.createElement("li")
+li.textContent=item
+lista.appendChild(li)
+})
+}
+function toggleCarrinho(){
+let conteudo=document.getElementById("carrinhoConteudo")
+conteudo.style.display=conteudo.style.display==="block"?"none":"block"
+}
+function irParaProdutos(){document.getElementById("produtos").scrollIntoView({behavior:"smooth"})}
+function irParaContato(){document.getElementById("rodape").scrollIntoView({behavior:"smooth"})}
 </script>
 </head>
 <body>
@@ -38,11 +61,8 @@ function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho
 <h1>SPV Comunicação</h1>
 <nav>
 <ul>
-<li><a onclick="navegar('home')">Home</a></li>
-<li><a onclick="navegar('produtos')">Produtos ▾</a></li>
-<li><a onclick="navegar('setores')">Soluções por Setor ▾</a></li>
-<li><a onclick="navegar('blog')">Blog</a></li>
-<li><a onclick="navegar('contato')">Contato</a></li>
+<li><a onclick="irParaProdutos()">Produtos</a></li>
+<li><a onclick="irParaContato()">Contato</a></li>
 </ul>
 </nav>
 </header>
@@ -52,43 +72,15 @@ function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho
 <p>Encontre os EPIs com certificação e a qualidade que sua equipe precisa para trabalhar com máxima confiança.</p>
 </div>
 
-<section class="produtos">
-<div class="produto">
-<h3>Luva Anticorte</h3>
-<p class="avaliacao">★★★★☆</p>
-<p class="preco">R$ 35,90</p>
-<button onclick="adicionarAoCarrinho('Luva Anticorte')">Adicionar ao Carrinho</button>
-</div>
-<div class="produto">
-<h3>Capacete Classe B</h3>
-<p class="avaliacao">★★★★★</p>
-<p class="preco">R$ 49,90</p>
-<button onclick="adicionarAoCarrinho('Capacete Classe B')">Adicionar ao Carrinho</button>
-</div>
-<div class="produto">
-<h3>Óculos de Proteção Incolor</h3>
-<p class="avaliacao">★★★★☆</p>
-<p class="preco">R$ 19,90</p>
-<button onclick="adicionarAoCarrinho('Óculos de Proteção')">Adicionar ao Carrinho</button>
-</div>
-<div class="produto">
-<h3>Máscara PFF2</h3>
-<p class="avaliacao">★★★★★</p>
-<p class="preco">R$ 5,90</p>
-<button onclick="adicionarAoCarrinho('Máscara PFF2')">Adicionar ao Carrinho</button>
-</div>
-<div class="produto">
-<h3>Bota de PVC</h3>
-<p class="avaliacao">★★★★☆</p>
-<p class="preco">R$ 79,90</p>
-<button onclick="adicionarAoCarrinho('Bota de PVC')">Adicionar ao Carrinho</button>
-</div>
-<div class="produto">
-<h3>Cinto de Segurança Tipo Paraquedista</h3>
-<p class="avaliacao">★★★★★</p>
-<p class="preco">R$ 129,90</p>
-<button onclick="adicionarAoCarrinho('Cinto de Segurança')">Adicionar ao Carrinho</button>
-</div>
+<section id="produtos" class="produtos">
+<div class="produto"><h3>Luva Anticorte</h3><p class="avaliacao">★★★★☆</p><p class="preco">R$ 35,90</p><button onclick="adicionarAoCarrinho('Luva Anticorte')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Capacete Classe B</h3><p class="avaliacao">★★★★★</p><p class="preco">R$ 49,90</p><button onclick="adicionarAoCarrinho('Capacete Classe B')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Óculos de Proteção Incolor</h3><p class="avaliacao">★★★★☆</p><p class="preco">R$ 19,90</p><button onclick="adicionarAoCarrinho('Óculos de Proteção')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Máscara PFF2</h3><p class="avaliacao">★★★★★</p><p class="preco">R$ 5,90</p><button onclick="adicionarAoCarrinho('Máscara PFF2')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Bota de PVC</h3><p class="avaliacao">★★★★☆</p><p class="preco">R$ 79,90</p><button onclick="adicionarAoCarrinho('Bota de PVC')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Cinto de Segurança Tipo Paraquedista</h3><p class="avaliacao">★★★★★</p><p class="preco">R$ 129,90</p><button onclick="adicionarAoCarrinho('Cinto de Segurança')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Protetor Auricular de Espuma</h3><p class="avaliacao">★★★★☆</p><p class="preco">R$ 2,50</p><button onclick="adicionarAoCarrinho('Protetor Auricular')">Adicionar ao Carrinho</button></div>
+<div class="produto"><h3>Avental PVC Impermeável</h3><p class="avaliacao">★★★★★</p><p class="preco">R$ 39,90</p><button onclick="adicionarAoCarrinho('Avental PVC')">Adicionar ao Carrinho</button></div>
 </section>
 
 <section class="diferenciais">
@@ -96,35 +88,25 @@ function adicionarAoCarrinho(produto){alert(produto+" foi adicionado ao carrinho
 <p>A SPV Comunicação é especializada em fornecer equipamentos de proteção individual que atendem às normas técnicas e oferecem máxima segurança para diversos segmentos profissionais. Atuamos com comprometimento, inovação e foco total no cliente, garantindo produtos de alta qualidade, entregas rápidas e um atendimento diferenciado. Com experiência de mercado e parcerias sólidas, nossa missão é proteger quem trabalha, promovendo ambientes mais seguros e produtivos.</p>
 </section>
 
-<section class="blog">
-<h2>Fique por Dentro da Segurança no Trabalho</h2>
-<div class="card">
-<h3>Como escolher a luva certa?</h3>
-<p>A escolha da luva adequada depende diretamente da atividade exercida. Luvas anticorte são ideais para trabalhos com chapas metálicas ou objetos cortantes, enquanto luvas de borracha são recomendadas para manipulação de produtos químicos. Sempre verifique o nível de proteção indicado pela norma EN 388.</p>
-<button onclick="navegar('luvas')">Leia mais →</button>
-</div>
-<div class="card">
-<h3>EPIs obrigatórios por setor</h3>
-<p>Cada setor de trabalho exige EPIs específicos: na construção civil, é comum o uso de capacetes, botas e cintos de segurança. Em ambientes hospitalares, jalecos, luvas descartáveis e máscaras são indispensáveis. Já na indústria química, o uso de respiradores, aventais e protetores faciais é essencial. Conhecer a NR-6 é fundamental para garantir conformidade legal e segurança.</p>
-<button onclick="navegar('epis-setores')">Leia mais →</button>
-</div>
-</section>
-
-<footer>
+<footer id="rodape">
 <p>Rua Campo das Pitangueiras, 379 - São Paulo, SP</p>
 <p>(11) 91134-9095 | contato@spvcomunicacao.com.br</p>
 <div class="links">
-<a onclick="navegar('seguranca')">Sua Segurança, Nossa Prioridade.</a>
-<a onclick="navegar('sobre')">Sobre Nós</a>
-<a onclick="navegar('trabalhe')">Trabalhe Conosco</a>
-<a onclick="navegar('privacidade')">Política de Privacidade</a>
-<a onclick="navegar('termos')">Termos de Uso</a>
-<a onclick="navegar('comprar')">Como Comprar</a>
-<a onclick="navegar('trocas')">Trocas e Devoluções</a>
-<a onclick="navegar('faq')">FAQ</a>
-<a onclick="navegar('contato')">Fale Conosco</a>
+<a onclick="irParaContato()">Sua Segurança, Nossa Prioridade.</a>
+<a onclick="irParaContato()">Sobre Nós</a>
+<a onclick="irParaContato()">Trabalhe Conosco</a>
+<a onclick="irParaContato()">Política de Privacidade</a>
+<a onclick="irParaContato()">Termos de Uso</a>
+<a onclick="irParaContato()">Como Comprar</a>
+<a onclick="irParaContato()">Trocas e Devoluções</a>
+<a onclick="irParaContato()">FAQ</a>
+<a onclick="irParaContato()">Fale Conosco</a>
 </div>
 </footer>
 
+<button id="carrinhoBotao" onclick="toggleCarrinho()">🛒 Carrinho</button>
+<div id="carrinhoConteudo"><strong>Itens no Carrinho:</strong><ul id="carrinhoLista"></ul></div>
+
 </body>
 </html>
+
